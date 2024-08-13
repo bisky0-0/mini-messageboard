@@ -1,16 +1,22 @@
 const express = require('express');
 const app = express();
-const path = require('path')
-const messages = require('./routes/messages')
+const path = require('path');
 
+// Set up view engine and views folder
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
+// Middleware for parsing form data
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-    res.render("messages", { messages: messages });
-});
+// Require and use routes
+const indexRoutes = require('./routes/index');
+const newRoutes = require('./routes/new');
 
+app.use('/', indexRoutes);
+app.use('/', newRoutes);
+
+// Start the server
 app.listen(8000, () => {
-    console.log("localhost is running")
-})
+    console.log("localhost is running");
+});
