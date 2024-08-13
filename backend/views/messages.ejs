@@ -10,6 +10,7 @@
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -18,19 +19,35 @@
 
         header {
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgb(0, 107, 183);
-            background-color: #fff;
-            font-size: 3rem;
             position: fixed;
             top: 0;
             right: 0;
+            z-index: 100;
+            font-size: 1.5rem;
+            background-color: #fff;
+            color: darkslategray;
+            text-transform: uppercase;
+            padding: 20px;
+            box-shadow: .5px .5px 10px #e4e4e4;
+        }
+
+        #add-btn {
+            padding: 10px;
+            background-color: #a0f4ff;
+            color: #3f3d3d;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 1.09rem;
+            cursor: pointer;
+            box-shadow: 1px 1px 15px #cccccca2;
+            position: absolute;
+            top: 13px;
+            right: 20px;
         }
 
         main {
-            margin-top: 60px;
+            margin: 90px 0 90px 0;
             display: flex;
             flex-flow: column;
             align-items: center;
@@ -38,13 +55,14 @@
         }
 
         .message-box {
-            width: 400px;
+            width: 600px;
             display: flex;
             flex-flow: row wrap;
             padding: 20px;
-            box-shadow: .5px .5px 20px #d0d0d0;
+            box-shadow: .5px .5px 20px #d0d0d098;
             margin: 15px;
             border-radius: 20px;
+            position: relative;
         }
 
         .user,
@@ -52,8 +70,7 @@
         .date {
             width: 100%;
             margin-bottom: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #1f1f1f;
+            color: #3e3e3e;
         }
 
         .user {
@@ -62,14 +79,32 @@
         }
 
         .date {
-            font-size: .6rem;
+            font-size: .73rem;
             color: #3e3e3e;
+            margin-top: 10px;
+        }
+
+        .details-btn {
+            width: 80px;
+            height: 32px;
+            background-color: #ffa238;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1.06rem;
+            color: #302e2e;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
         }
     </style>
 </head>
 
 <body>
-    <header>All Messages</header>
+    <header>mini messageboard
+        <button id="add-btn" onclick="window.location.href = '/new'">add new message</button>
+    </header>
     <main>
         <% messages.map((message)=> { %>
             <div class="message-box">
@@ -87,6 +122,9 @@
                         ${day} ${year} ${hours}:${minutes}`; %>
                         <%=formattedDate %>
                 </div>
+                <button class="details-btn" onclick="window.location.href='/message/<%= message.id %>'">
+                    Open
+                </button>
             </div>
             <% }) %>
     </main>

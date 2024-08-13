@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>message details</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 100;
+            font-size: 1.5rem;
+            background-color: #fff;
+            color: darkslategray;
+            text-transform: uppercase;
+            padding: 20px;
+            box-shadow: .5px .5px 10px #e4e4e4;
+        }
+
+        main {
+            margin-top: 150px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        #heading {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            border-bottom: 1px solid #7de7ff;
+            padding-bottom: 10px;
+            width: 200px;
+            margin-left: -690px;
+        }
+
+
+        .message-box {
+            width: 800px;
+            display: flex;
+            flex-flow: row wrap;
+            padding: 20px;
+            box-shadow: .5px .5px 20px #d0d0d098;
+            margin: 15px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .user,
+        .text,
+        .date {
+            width: 100%;
+            margin-bottom: 10px;
+            color: #3e3e3e;
+        }
+
+        .user {
+            font-size: 1.5rem;
+            color: tomato;
+        }
+
+        .date {
+            font-size: .9rem;
+            color: #3e3e3e;
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            width: 80px;
+            height: 32px;
+            background-color: #007e94;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1.06rem;
+            color: #ffffff;
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>mini messageboard</header>
+    <main>
+        <div id="heading">message details</div>
+        <div class="message-box">
+            <div class="user">
+                <%= message.user %>
+            </div>
+            <div class="text">
+                <%= message.text %>
+            </div>
+            <div class="date">
+                <% const month=message.added.toLocaleString('default', { month: 'short' }); const
+                    day=message.added.getDate(); const year=message.added.getFullYear(); const
+                    hours=message.added.getHours().toString().padStart(2, '0' ); const
+                    minutes=message.added.getMinutes().toString().padStart(2, '0' ); const formattedDate=`${month}
+                    ${day} ${year} ${hours}:${minutes}`; %>
+                    <%=formattedDate %>
+            </div>
+            <button class="back-btn" onclick="window.location.href='/'">
+                back
+            </button>
+        </div>
+    </main>
+</body>
+
+</html>
