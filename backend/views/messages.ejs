@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Messages</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(0, 107, 183);
+            background-color: #fff;
+            font-size: 3rem;
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        main {
+            margin-top: 60px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message-box {
+            width: 400px;
+            display: flex;
+            flex-flow: row wrap;
+            padding: 20px;
+            box-shadow: .5px .5px 20px #d0d0d0;
+            margin: 15px;
+            border-radius: 20px;
+        }
+
+        .user,
+        .text,
+        .date {
+            width: 100%;
+            margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #1f1f1f;
+        }
+
+        .user {
+            font-size: 1.3rem;
+            color: tomato;
+        }
+
+        .date {
+            font-size: .6rem;
+            color: #3e3e3e;
+        }
+    </style>
+</head>
+
+<body>
+    <header>All Messages</header>
+    <main>
+        <% messages.map((message)=> { %>
+            <div class="message-box">
+                <div class="user">
+                    <%= message.user %>
+                </div>
+                <div class="text">
+                    <%= message.text %>
+                </div>
+                <div class="date">
+                    <% const month=message.added.toLocaleString('default', { month: 'short' }); const
+                        day=message.added.getDate(); const year=message.added.getFullYear(); const
+                        hours=message.added.getHours().toString().padStart(2, '0' ); const
+                        minutes=message.added.getMinutes().toString().padStart(2, '0' ); const formattedDate=`${month}
+                        ${day} ${year} ${hours}:${minutes}`; %>
+                        <%=formattedDate %>
+                </div>
+            </div>
+            <% }) %>
+    </main>
+</body>
+
+</html>
