@@ -8,7 +8,8 @@ const messages = [
     { id: 6, added: new Date(), text: 'Don’t watch the clock; do what it does. Keep going.', user: 'Sam Levenson' },
     { id: 7, added: new Date(), text: 'The journey of a thousand miles begins with one step.', user: 'Lao Tzu' },
     { id: 8, added: new Date(), text: 'Believe you can and you’re halfway there.', user: 'Theodore Roosevelt' },
-    { id: 9, added: new Date(), text: 'Act as if what you do makes a difference. It does.', user: 'William James' }
+    { id: 9, added: new Date(), text: 'Act as if what you do makes a difference. It does.', user: 'William James' },
+    { id: 10, added: new Date(), text: 'Give it a try', user: 'Bisky' },
 ]
 
 module.exports = messages
