@@ -10,6 +10,7 @@ const messages = [
     { id: 8, added: new Date(), text: 'Believe you can and you’re halfway there.', user: 'Theodore Roosevelt' },
     { id: 9, added: new Date(), text: 'Act as if what you do makes a difference. It does.', user: 'William James' },
     { id: 10, added: new Date(), text: 'Give it a try', user: 'Bisky' },
+    { id: 11, added: new Date(), text: " In individuals, insanity is rare; but in groups, parties, nations, and epochs, it is the rule. From Beyond Good and Evil (1886)", user: "Friedrich Nietzsche" }
 ]
 
 module.exports = messages
