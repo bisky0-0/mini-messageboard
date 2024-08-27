@@ -23,6 +23,3 @@ app.use('/', newRoutes);
 app.listen(8000, () => {
     console.log("localhost is running");
 });
-
-require('dotenv').config({ path: '../.env' });
-console.log(process.env.HOST)
