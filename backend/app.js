@@ -22,6 +22,6 @@ app.use('/', newRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 8080
-app.listen(PORT, () => {
-    console.log("host is running");
+app.listen(8080, () => {
+    console.log(PORT + "host is running");
 });
