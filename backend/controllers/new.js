@@ -1,14 +1,7 @@
 
-const messages = require('../views/messages')
-const newMsg = (req, res) => {
-    messages.push({
-        id: messages.length,
-        text: req.body.message,
-        user: req.body.author,
-        added: new Date()
-    })
-
-    console.log(messages)
+const { insertMessage } = require('../db/queries')
+const newMsg = async (req, res) => {
+    await insertMessage(req.body.author, req.body.message, new Date())
 
     res.redirect("/");
 }

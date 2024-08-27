@@ -101,17 +101,17 @@
         <div id="heading">message details</div>
         <div class="message-box">
             <div class="user">
-                <%= message.user %>
+                <%= message.username %>
             </div>
             <div class="text">
                 <%= message.text %>
             </div>
             <div class="date">
-                <% const month=message.added.toLocaleString('default', { month: 'short' }); const
-                    day=message.added.getDate(); const year=message.added.getFullYear(); const
-                    hours=message.added.getHours().toString().padStart(2, '0' ); const
-                    minutes=message.added.getMinutes().toString().padStart(2, '0' ); const formattedDate=`${month}
-                    ${day} ${year} ${hours}:${minutes}`; %>
+                <% const month=message.date.toLocaleString('default', { month: 'short' }); const
+                    day=message.date.getDate(); const year=message.date.getFullYear(); const
+                    hours=message.date.getHours().toString().padStart(2, '0' ); const
+                    minutes=message.date.getMinutes().toString().padStart(2, '0' ); const formattedDate=`${month} ${day}
+                    ${year} ${hours}:${minutes}`; %>
                     <%=formattedDate %>
             </div>
             <button class="back-btn" onclick="window.location.href='/'">
